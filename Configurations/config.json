@@ -1,0 +1,12 @@
+{
+  "environments": {
+    "QA": {
+      "url": "https://demoqa.com/login",
+      "maxAttempts": 2
+    },
+    "PROD": {
+      "url": "https://demoqa.com/login",
+      "maxAttempts": 2
+    }
+  }
+}
