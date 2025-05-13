@@ -1,7 +1,9 @@
 package com.ui;
 
 import core.constants.Browser;
+import core.constants.Env;
 import core.env_config.Environment;
+import core.pageobjects.LoginPage;
 import core.testutils.BrowserActionsUtility;
 import core.testutils.JSONUtility;
 import org.openqa.selenium.WebDriver;
@@ -16,27 +18,16 @@ public class TestBase {
     protected String baseUrl;
     protected int maxAttempts;
     //Logger logger = LoggerUtility.getLogger(this.getClass());
-
+    LoginPage loginPage;
 
     @Parameters({"browser", "QA", "isHeadless"})
     @BeforeMethod(description = "Loading the test base")
     public void setup(@Optional("chrome") String browser, @Optional("QA") String env,
                       @Optional("false") boolean isHeadless, ITestResult result) {
-        Environment environment = JSONUtility.readEnvironmentConfig(env);
-        if (environment != null) {
-            baseUrl = environment.getUrl();
-            maxAttempts = environment.getMax_attempts();
-        }
-        driver = new BrowserActionsUtility(Browser.valueOf(browser.toUpperCase()), isHeadless).driver();
-        driver.get(baseUrl);
-        driver.manage().window().maximize();
-
+        loginPage = new LoginPage(Browser.valueOf(browser.toUpperCase()), isHeadless);
     }
-
     @AfterMethod()
     public void tearDown() {
-        if (driver != null) {
-            BrowserActionsUtility.quit();
-        }
+        loginPage.quit();
     }
 }

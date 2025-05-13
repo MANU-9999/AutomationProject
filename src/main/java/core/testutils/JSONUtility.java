@@ -2,6 +2,7 @@ package core.testutils;
 
 
 import com.google.gson.Gson;
+import core.constants.Env;
 import core.env_config.Config;
 import core.env_config.Environment;
 
@@ -11,19 +12,18 @@ import java.io.IOException;
 
 public class JSONUtility {
     // Read the configuration for the selected environment (DEV, QA, UAT)
-    public static Environment readEnvironmentConfig(String env) {
+    public static Environment readEnvironmentConfig(Env env) {
         Gson gson = new Gson();
         File jsonFile = new File(System.getProperty("user.dir") + "//ConfigurationS//config.json");
-        Config config = null;
-        try (FileReader fileReader = new FileReader(jsonFile)) {
-            config = gson.fromJson(fileReader, Config.class);
+        FileReader fileReader = null;
+        Environment environment;
+        try {
+            fileReader = new FileReader(jsonFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (config != null) {
-            // Return the environment data for the specified environment
-            return config.getEnvironments().get(env.toUpperCase());
-        }
-        return null; // Return null if config is not found or JSON is malformed
+        Config config = gson.fromJson(fileReader, Config.class);
+        environment = config.getEnvironments().get("QA");
+        return environment;
     }
 }

@@ -88,7 +88,10 @@ public class BrowserActionsUtility {
         logger.info("Element found and now performing click");
         element.click();
     }
-
+    public static void navigateToWebsite(String url) {
+        logger.info("Navigating to the website" + url);
+        driver.get().get(url);  // Use WebDriver from ThreadLocal
+    }
     // Enter text in a field using locator
     public static void enterText(By locator, String textToEnter) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -128,7 +131,7 @@ public class BrowserActionsUtility {
         return filePath;
     }
     // Quit the browser and clean up
-    public static void quit() {
+    public void quit() {
         if (driver.get() != null) {
             driver.get().quit();
             driver.remove();  // Clean up the WebDriver from ThreadLocal

@@ -1,6 +1,9 @@
 package core.pageobjects;
 
+import core.constants.Browser;
+import core.constants.Env;
 import core.testutils.BrowserActionsUtility;
+import core.testutils.JSONUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -13,6 +16,13 @@ public class LoginPage extends BrowserActionsUtility {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        navigateToWebsite(JSONUtility.readEnvironmentConfig(Env.QA).getUrl());
+        maximizeWindow();
+    }
+    public LoginPage(Browser browserName, boolean isHeadless) {
+        super(browserName, isHeadless);
+        navigateToWebsite(JSONUtility.readEnvironmentConfig(Env.QA).getUrl());
+        maximizeWindow();
     }
     public static void ValidLogin(String username,String pswd) {
         BrowserActionsUtility.enterText(userName, username);
@@ -25,4 +35,5 @@ public class LoginPage extends BrowserActionsUtility {
         String  s=BrowserActionsUtility.getVisibleText(alertMessage);
         Assert.assertEquals(s,"Invalid username or password!");
     }
+
 }
