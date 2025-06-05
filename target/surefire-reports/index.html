@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-Surefire_suite" class="navigator-link ">
-                    <span>1 group</span>
+                    <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,31 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">5 methods, 3 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.ui.LoginValidationTest" class="method navigator-link" hash-for-method="InValidLogintest(dummy_user, dummy_password)">InValidLogintest(dummy_user, dummy_password)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.ui.AlertsFramesAndWindowsTest" class="method navigator-link" hash-for-method="browserWindowsTest">browserWindowsTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.ui.RegistrationTest" class="method navigator-link" hash-for-method="registrationForm(TestUser, TestUser@gmail.com, 987654321, 2000-12-31, Mathematics, D://Manoj//1747680424251.jpeg, Han...)">registrationForm(TestUser, TestUser@gmail.com, 987654321, 2000-12-31, Mathematics, D://Manoj//1747680424251.jpeg, Han...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,12 +127,12 @@
                     <div class="method-list-content passed suite-Surefire_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="LoginValidationTest" class="method navigator-link" hash-for-method="signUpAndInValidTest(, )">signUpAndInValidTest(, )</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.ui.LoginValidationTest" class="method navigator-link" hash-for-method="URLBrokenTest(ManojKumarCH, Password@123)">URLBrokenTest(ManojKumarCH, Password@123)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Surefire_suite" title="LoginValidationTest" class="method navigator-link" hash-for-method="signUpAndValidTest(7672003173, Runo@03062025)">signUpAndValidTest(7672003173, Runo@03062025)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.ui.ElementsTest" class="method navigator-link" hash-for-method="uploadAndDownload">uploadAndDownload</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Surefire_suite -->
@@ -123,26 +147,135 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
-          <div class="suite-Surefire_suite-class-passed">
+          <div class="suite-Surefire_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">LoginValidationTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.ui.AlertsFramesAndWindowsTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="signUpAndInValidTest(, )">
-                  </a> <!-- signUpAndInValidTest(, ) -->
-                  <span class="method-name">signUpAndInValidTest</span>
-                  <span class="parameters">(,)</span>
+                  <a name="browserWindowsTest">
+                  </a> <!-- browserWindowsTest -->
+                  <span class="method-name">browserWindowsTest</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[contains(@href,&apos;browser-windows.php&apos;)] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.29.0&apos;, revision: &apos;5fc1ec94cb&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.57, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\manoj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60244/devtoo..., se:cdpVersion: 137.0.7151.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 68900bb7c4540af3dad85b006a5384d6
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at core.testutils.BrowserActionsUtility.clickOn(BrowserActionsUtility.java:97)
+	at core.pageobjects.AlertsFramesAndWindowsPage.browserWindows(AlertsFramesAndWindowsPage.java:21)
+	at com.ui.AlertsFramesAndWindowsTest.browserWindowsTest(AlertsFramesAndWindowsTest.java:11)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.ui.LoginValidationTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="signUpAndValidTest(7672003173, Runo@03062025)">
-                  </a> <!-- signUpAndValidTest(7672003173, Runo@03062025) -->
-                  <span class="method-name">signUpAndValidTest</span>
-                  <span class="parameters">(7672003173,Runo@03062025)</span>
+                  <a name="InValidLogintest(dummy_user, dummy_password)">
+                  </a> <!-- InValidLogintest(dummy_user, dummy_password) -->
+                  <span class="method-name">InValidLogintest</span>
+                  <span class="parameters">(dummy_user,dummy_password)</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: userName (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.29.0&apos;, revision: &apos;5fc1ec94cb&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.57, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\manoj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60300}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60300/devtoo..., se:cdpVersion: 137.0.7151.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f4ccf614087d83445a7b8c3e32eb5f2d
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at core.testutils.BrowserActionsUtility.enterText(BrowserActionsUtility.java:134)
+	at core.pageobjects.LoginPage.InValidLogin(LoginPage.java:32)
+	at com.ui.LoginValidationTest.InValidLogintest(LoginValidationTest.java:20)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.ui.RegistrationTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="registrationForm(TestUser, TestUser@gmail.com, 987654321, 2000-12-31, Mathematics, D://Manoj//1747680424251.jpeg, Han...)">
+                  </a> <!-- registrationForm(TestUser, TestUser@gmail.com, 987654321, 2000-12-31, Mathematics, D://Manoj//1747680424251.jpeg, Han...) -->
+                  <span class="method-name">registrationForm</span>
+                  <span class="parameters">(TestUser,TestUser@gmail.com,987654321,2000-12-31,Mathematics,D://Manoj//1747680424251.jpeg,Hanuman Nagar,NCR,Agra)</span>
+                  <div class="stack-trace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (1121, 700)
+  (Session info: chrome=137.0.7151.57)
+Build info: version: &apos;4.29.0&apos;, revision: &apos;5fc1ec94cb&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.6&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7f8b977e9744258e5b7caf3e8123aaa1, clickElement {id=f.5E67114CA1BAB83263C64ED074F2A0D6.d.0A99FB17C9CD579A77C41C34D5AD4005.e.88}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.57, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\manoj\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60362}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:60362/devtoo..., se:cdpVersion: 137.0.7151.57, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (7f8b977e9744258e5b7caf3e8123aaa1)] -&gt; xpath: //input[@value=&apos;Login&apos;]]
+Session ID: 7f8b977e9744258e5b7caf3e8123aaa1
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at core.testutils.BrowserActionsUtility.clickOn(BrowserActionsUtility.java:99)
+	at core.pageobjects.RegistrationPage.retryMethodForPages(RegistrationPage.java:52)
+	at core.pageobjects.RegistrationPage.registrationFormGrid(RegistrationPage.java:46)
+	at com.ui.RegistrationTest.registrationForm(RegistrationTest.java:10)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ui.LoginValidationTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="URLBrokenTest(ManojKumarCH, Password@123)">
+                  </a> <!-- URLBrokenTest(ManojKumarCH, Password@123) -->
+                  <span class="method-name">URLBrokenTest</span>
+                  <span class="parameters">(ManojKumarCH,Password@123)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-passed -->
+          <div class="suite-Surefire_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.ui.ElementsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="uploadAndDownload">
+                  </a> <!-- uploadAndDownload -->
+                  <span class="method-name">uploadAndDownload</span>
+                  <em>
+(Test for uploading and downloading files)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -158,8 +291,11 @@
 &lt;suite name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;LoginValidationTest&quot;/&gt;
-      &lt;class name=&quot;TestBase&quot;/&gt;
+      &lt;class name=&quot;com.ui.AlertsFramesAndWindowsTest&quot;/&gt;
+      &lt;class name=&quot;com.ui.ElementsTest&quot;/&gt;
+      &lt;class name=&quot;com.ui.LoginValidationTest&quot;/&gt;
+      &lt;class name=&quot;com.ui.RegistrationTest&quot;/&gt;
+      &lt;class name=&quot;com.ui.TestBase&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
 &lt;/suite&gt; &lt;!-- Surefire suite --&gt;
@@ -173,7 +309,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Surefire test (2 classes)</span>
+                <span class="test-name">Surefire test (5 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -183,18 +319,6 @@
             <span class="header-content">Groups for Surefire suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="test-group">
-              <span class="test-group-name">smoke</span>
-              <br/>
-              <div class="method-in-group">
-                <span class="method-in-group-name">signUpAndInValidTest</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
-                <span class="method-in-group-name">signUpAndValidTest</span>
-                <br/>
-              </div> <!-- method-in-group -->
-            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-Surefire_suite" class="panel">
@@ -211,20 +335,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'signUpAndValidTest')
-data.setCell(0, 2, 'LoginValidationTest')
-data.setCell(0, 3, 7394);
+data.setCell(0, 1, 'InValidLogintest')
+data.setCell(0, 2, 'com.ui.LoginValidationTest')
+data.setCell(0, 3, 30010);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'signUpAndInValidTest')
-data.setCell(1, 2, 'LoginValidationTest')
-data.setCell(1, 3, 7098);
+data.setCell(1, 1, 'browserWindowsTest')
+data.setCell(1, 2, 'com.ui.AlertsFramesAndWindowsTest')
+data.setCell(1, 3, 10166);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'registrationForm')
+data.setCell(2, 2, 'com.ui.RegistrationTest')
+data.setCell(2, 3, 2830);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'uploadAndDownload')
+data.setCell(3, 2, 'com.ui.ElementsTest')
+data.setCell(3, 3, 1325);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'URLBrokenTest')
+data.setCell(4, 2, 'com.ui.LoginValidationTest')
+data.setCell(4, 3, 390);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 14 seconds</span>
+              <span class="suite-total-time">Total running time: 44 seconds</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -239,9 +375,16 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.ui.LoginValidationTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">ValidLoginTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Surefire_suite" class="panel">
@@ -250,30 +393,81 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">LoginValidationTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.ui.AlertsFramesAndWindowsTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=LoginValidationTest.signUpAndInVali...)</span>
+                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=AlertsFramesAndWindowsTest.browserW...)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">signUpAndInValidTest(, )</span>
-                <span class="method-start">3896 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">browserWindowsTest</span>
+                <span class="method-start">2057 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">11005 ms</span>
+                <span class="method-start">12391 ms</span>
               </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ui.ElementsTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
-                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=LoginValidationTest.signUpAndValidT...)</span>
-                <span class="method-start">11476 ms</span>
+                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=ElementsTest.uploadAndDownload()[pr...)</span>
+                <span class="method-start">12578 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">signUpAndValidTest(7672003173, Runo@03062025)</span>
-                <span class="method-start">14469 ms</span>
+                <span class="method-name">uploadAndDownload</span>
+                <span class="method-start">14239 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">21864 ms</span>
+                <span class="method-start">15566 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ui.LoginValidationTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=LoginValidationTest.InValidLogintes...)</span>
+                <span class="method-start">15756 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">InValidLogintest(dummy_user, dummy_password)</span>
+                <span class="method-start">17325 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">47469 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=LoginValidationTest.URLBrokenTest(j...)</span>
+                <span class="method-start">47639 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">URLBrokenTest(ManojKumarCH, Password@123)</span>
+                <span class="method-start">49635 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">50025 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.ui.RegistrationTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(chrome, QA, false, [TestResult name={null} status=CREATED method=RegistrationTest.registrationForm(j...)</span>
+                <span class="method-start">50201 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">registrationForm(TestUser, TestUser@gmail.com, 987654321, 2000-12-31, Mathematics, D://Manoj//1747680424251.jpeg, Han...)</span>
+                <span class="method-start">51685 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">54627 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

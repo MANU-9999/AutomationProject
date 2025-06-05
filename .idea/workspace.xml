@@ -5,18 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2569ddb8-07fd-4ce2-bce5-1a606ee93d26" name="First Commit" comment="Main20032025">
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/pageobjects/AlertsFramesAndWindowsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/pageobjects/ElementsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/pageobjects/ProfilePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/pageobjects/RegistrationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/testdata/ElementsDataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/testutils/MyRetryAnalyzerUtility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ui/AlertsFramesAndWindowsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ui/ElementsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ui/RegistrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/pageobjects/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/pageobjects/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Configurations/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/Configurations/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/constants/Browser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/constants/Browser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/env_config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/env_config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/pageobjects/SignUpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/pageobjects/SignUpPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/testdata/TestDataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/testdata/TestDataProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/testutils/BrowserActionsUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/testutils/BrowserActionsUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/testutils/JSONUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/testutils/JSONUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ui/LoginValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ui/LoginValidationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ui/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ui/TestBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/core/pageobjects/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/pageobjects/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/core/constants/Browser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/constants/Browser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/core/constants/Env.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/constants/Env.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/core/pageobjects/SignUpPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/pageobjects/SignUpPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/core/testdata/TestDataProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/testdata/TestDataProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/core/testutils/BrowserActionsUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/testutils/BrowserActionsUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/core/testutils/ExtentReportUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/testutils/ExtentReportUtility.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/core/testutils/JSONUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/testutils/JSONUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/core/testutils/ListenerUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/core/testutils/ListenerUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-03-22T12-17-14_577-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-03-22T12-17-14_577-jvmRun1.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-03-22T12-17-14_577.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-03-22T12-33-49_933.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-03-22T12-36-52_791.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-03-22T12-38-45_977.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Surefire suite/Surefire test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bullet_point.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/collapseall.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/failed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/jquery-3.6.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-LoginValidationTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/navigator-bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/passed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/skipped.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/ui/LoginValidationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ui/LoginValidationTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/ui/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ui/TestBase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/testScreenshotsFiles/ValidTest_screenshot_20250503_124030.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/testScreenshotsFiles/InValidLogin_screenshot_20250513_111306.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/testScreenshotsFiles/InValidLogin_screenshot_20250513_112727.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/testng.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,46 +99,57 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2twIcAMYdhms6fEKaMZ0xj1r2eB" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;TestNG.&lt;default&gt; (1).executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.&lt;default&gt; (2).executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.D:/Manoj/Selenium/Project_Runo/testng.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginValidationTest.InValidLogin.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginValidationTest.ValidTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.LoginValidationTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.Runo.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.Runo.signUpTest.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.runoTests.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.runoTests.signUpTest.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Manoj/Selenium/DEMOQA&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Manoj/Selenium/Automation Projects/Test-Automation-Framework-master/Project_Runo/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.<default> (1).executor": "Run",
+    "TestNG.<default> (2).executor": "Run",
+    "TestNG.<default>.executor": "Run",
+    "TestNG.AlertsFramesAndWindowsTest.executor": "Debug",
+    "TestNG.D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml.executor": "Run",
+    "TestNG.D:/Manoj/Selenium/DEMOQA/testng.xml.executor": "Run",
+    "TestNG.D:/Manoj/Selenium/Project_Runo/testng.xml.executor": "Run",
+    "TestNG.ElementsTest (1).executor": "Run",
+    "TestNG.ElementsTest (2).executor": "Debug",
+    "TestNG.ElementsTest.executor": "Run",
+    "TestNG.ElementsTest.radioButtons.executor": "Run",
+    "TestNG.LoginValidationTest.InValidLogin.executor": "Run",
+    "TestNG.LoginValidationTest.ValidTest.executor": "Run",
+    "TestNG.LoginValidationTest.executor": "Run",
+    "TestNG.RegistrationTest.executor": "Debug",
+    "TestNG.Runo.executor": "Run",
+    "TestNG.Runo.signUpTest.executor": "Run",
+    "TestNG.beaconTest.executor": "Run",
+    "TestNG.runoTests.executor": "Run",
+    "TestNG.runoTests.signUpTest.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Manoj/Selenium/DEMOQA",
+    "onboarding.tips.debug.path": "D:/Manoj/Selenium/Automation Projects/Test-Automation-Framework-master/Project_Runo/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "copyright"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Manoj\Selenium\Automation Projects\Test-Automation-Framework-master\Project_Runo\src\main\java" />
@@ -93,20 +159,17 @@
       <recent name="D:\Manoj\Selenium\Project_Runo\target\testScreenshots" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml">
-    <configuration name="D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/target/testng.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginValidationTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.AlertsFramesAndWindowsTest">
+    <configuration name="AlertsFramesAndWindowsTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Project1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ui.LoginValidationTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ui" />
+      <option name="MAIN_CLASS_NAME" value="com.ui.AlertsFramesAndWindowsTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -114,7 +177,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginValidationTest.InValidLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ElementsTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Project1" />
       <extension name="coverage">
         <pattern>
@@ -123,16 +186,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ui" />
-      <option name="MAIN_CLASS_NAME" value="com.ui.LoginValidationTest" />
-      <option name="METHOD_NAME" value="InValidLogin" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="MAIN_CLASS_NAME" value="com.ui.ElementsTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginValidationTest.ValidTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ElementsTest (2)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Project1" />
       <extension name="coverage">
         <pattern>
@@ -141,19 +203,43 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ui" />
-      <option name="MAIN_CLASS_NAME" value="com.ui.LoginValidationTest" />
-      <option name="METHOD_NAME" value="ValidTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="MAIN_CLASS_NAME" value="com.ui.ElementsTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="&lt;default&gt; (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ElementsTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Project1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="PACKAGE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ui" />
+      <option name="MAIN_CLASS_NAME" value="com.ui.ElementsTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ElementsTest.radioButtons" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Project1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ui" />
+      <option name="MAIN_CLASS_NAME" value="com.ui.ElementsTest" />
+      <option name="METHOD_NAME" value="radioButtons" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -162,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml" />
-        <item itemvalue="TestNG.LoginValidationTest.InValidLogin" />
-        <item itemvalue="TestNG.LoginValidationTest.ValidTest" />
-        <item itemvalue="TestNG.LoginValidationTest" />
-        <item itemvalue="TestNG.&lt;default&gt; (1)" />
+        <item itemvalue="TestNG.AlertsFramesAndWindowsTest" />
+        <item itemvalue="TestNG.ElementsTest (2)" />
+        <item itemvalue="TestNG.ElementsTest (1)" />
+        <item itemvalue="TestNG.ElementsTest.radioButtons" />
+        <item itemvalue="TestNG.ElementsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -207,46 +293,60 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/com/aventstack/extentreports/5.1.1/extentreports-5.1.1-sources.jar!/com/aventstack/extentreports/ExtentTest.java</url>
           <line>440</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/ui/TestBase.java</url>
-          <line>20</line>
+          <line>11</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/core/testutils/BrowserActionsUtility.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/LoginPage.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ui/LoginValidationTest.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/ProfilePage.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ui/LoginValidationTest.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/ui/LoginValidationTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/ElementsPage.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/ElementsPage.java</url>
           <line>138</line>
-          <option name="timeStamp" value="100" />
+          <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/core/testutils/BrowserActionsUtility.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="101" />
+          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/AlertsFramesAndWindowsPage.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/LoginPage.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/core/pageobjects/LoginPage.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="77" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/core/env_config/Config.java</url>
-          <line>6</line>
-          <properties field="environments" class="core.env_config.Config" />
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

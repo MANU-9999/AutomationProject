@@ -1,6 +1,5 @@
 package core.testutils;
 
-
 import com.google.gson.Gson;
 import core.constants.Env;
 import core.env_config.Config;
@@ -14,16 +13,15 @@ public class JSONUtility {
     // Read the configuration for the selected environment (DEV, QA, UAT)
     public static Environment readEnvironmentConfig(Env env) {
         Gson gson = new Gson();
-        File jsonFile = new File(System.getProperty("user.dir") + "//ConfigurationS//config.json");
-        FileReader fileReader = null;
-        Environment environment;
-        try {
-            fileReader = new FileReader(jsonFile);
+        String filepath = System.getProperty("user.dir") + File.separator + "ConfigurationS" + File.separator + "config.json";
+        File jsonFile = new File(filepath);
+
+        try (FileReader fileReader = new FileReader(jsonFile)) {
+                Config config = gson.fromJson(fileReader, Config.class);
+            return config.getEnvironments().get(env.name());
         } catch (IOException e) {
             e.printStackTrace();
+            throw new RuntimeException("Failed to read config.json: " + e.getMessage());
         }
-        Config config = gson.fromJson(fileReader, Config.class);
-        environment = config.getEnvironments().get("QA");
-        return environment;
     }
 }

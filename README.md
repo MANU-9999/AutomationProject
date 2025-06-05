@@ -10,6 +10,11 @@ It is designed for automating web application testing with advanced features lik
 - **Extent Reports**: Produces rich HTML reports with test results and logs.
 - **TestNG Listeners**: Captures test events like success, failure, and screenshots.
 - **Screenshots on Failure**: Automatically captures screenshots on test failures for better debugging.
+- **CI/CD Integration**: Easily integrates with Jenkins, GitHub Actions, or other CI tools.
+- **Data-Driven Testing**: Supports reading test data from external sources like Excel, CSV, or JSON.
+- **Reusable Components**: Encourages modular code for test reusability and maintenance.
+
+
 
 ## Project Structure
 ### Explanation of Key Directories and Files:

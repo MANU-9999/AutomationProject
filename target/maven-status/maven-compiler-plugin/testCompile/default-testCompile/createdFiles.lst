@@ -1,2 +1,5 @@
-TestBase.class
-LoginValidationTest.class
+com\ui\ElementsTest.class
+com\ui\TestBase.class
+com\ui\LoginValidationTest.class
+com\ui\AlertsFramesAndWindowsTest.class
+com\ui\RegistrationTest.class

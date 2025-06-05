@@ -1,7 +1,7 @@
 {
   "environments": {
     "QA": {
-      "url": "https://demoqa.com/login",
+      "url": "https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php",
       "maxAttempts": 2
     },
     "PROD": {
