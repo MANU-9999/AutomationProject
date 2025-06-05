@@ -5,8 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SignUpPage extends BrowserActionsUtility {
-    private static final By mobileNo =
-            By.xpath("//input[@id='username' and @type='text']");
+    private static final By mobileNo =By.xpath("//input[@id='username' and @type='text']");
 
     public SignUpPage(WebDriver driver) {
         super(driver);
