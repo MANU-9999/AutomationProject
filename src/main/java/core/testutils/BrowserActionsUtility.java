@@ -1,7 +1,6 @@
 package core.testutils;
 
 import core.constants.Browser;
-import org.apache.commons.codec.binary.Base32;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -32,172 +31,232 @@ import java.time.Duration;
 import java.util.*;
 
 public class BrowserActionsUtility {
-
-    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();  // ThreadLocal to store WebDriver for each thread
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     private static final Logger logger = LoggerUtility.getLogger(BrowserActionsUtility.class);
-    private static WebDriverWait wait;
+    private WebDriverWait wait;
 
-    // Constructor for initializing WebDriver
-    public BrowserActionsUtility(WebDriver driver) {
-        BrowserActionsUtility.driver.set(driver);  // Assign WebDriver to ThreadLocal
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30L));
-    }
-    // Constructor to initialize WebDriver with a specific browser
-    public BrowserActionsUtility(Browser browserName) {
-        if (browserName == Browser.CHROME) {
-            driver.set(new ChromeDriver());  // Initialize ChromeDriver and set it in ThreadLocal
-        } else if (browserName == Browser.FIREFOX) {
-            driver.set(new FirefoxDriver());  // Initialize FirefoxDriver and set it in ThreadLocal
-        } else if (browserName == Browser.EDGE) {
-            driver.set(new EdgeDriver());  // Initialize EdgeDriver and set it in ThreadLocal
+    // Static factory method to create and get driver instance
+    public static WebDriver getDriver(Browser browser, boolean isHeadless) {
+        if (driver.get() == null) {
+            WebDriver newDriver = createDriver(browser, isHeadless);
+            driver.set(newDriver);
         }
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(30L));
+        return driver.get();
     }
 
-    // Constructor for initializing WebDriver with a specific browser and headless option
-    public BrowserActionsUtility(Browser browserName, boolean isHeadless) {
-        if (browserName == Browser.CHROME) {
-            ChromeOptions options = new ChromeOptions();
-            if (isHeadless) {
-                options.addArguments("--headless", "--window-size=1920x1080");
-            }
-            driver.set(new ChromeDriver(options));  // Initialize ChromeDriver with options
-        } else if (browserName == Browser.EDGE) {
-            EdgeOptions options = new EdgeOptions();
-            if (isHeadless) {
-                options.addArguments("--headless", "--window-size=1920x1080");
-            }
-            driver.set(new EdgeDriver(options));  // Initialize EdgeDriver with options
-        } else if (browserName == Browser.FIREFOX) {
-            FirefoxOptions options = new FirefoxOptions();
-            if (isHeadless) {
-                options.addArguments("--headless");
-            }
-            driver.set(new FirefoxDriver(options));  // Initialize FirefoxDriver with options
+    // Create driver based on browser type
+    private static WebDriver createDriver(Browser browser, boolean isHeadless) {
+        WebDriver newDriver;
+        switch (browser) {
+            case CHROME:
+                ChromeOptions chromeOptions = new ChromeOptions();
+                if (isHeadless) {
+                    chromeOptions.addArguments("--headless", "--window-size=1920x1080");
+                }
+                newDriver = new ChromeDriver(chromeOptions);
+                break;
+            case FIREFOX:
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                if (isHeadless) {
+                    firefoxOptions.addArguments("--headless");
+                }
+                newDriver = new FirefoxDriver(firefoxOptions);
+                break;
+            case EDGE:
+                EdgeOptions edgeOptions = new EdgeOptions();
+                if (isHeadless) {
+                    edgeOptions.addArguments("--headless", "--window-size=1920x1080");
+                }
+                newDriver = new EdgeDriver(edgeOptions);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(30L));
+        return newDriver;
     }
 
-    // Get the WebDriver instance for the current thread
-    public WebDriver driver() {
-        return driver.get();  // Use ThreadLocal.get() to get the WebDriver for the current thread
+    // Get current driver instance
+    public static WebDriver getCurrentDriver() {
+        return driver.get();
     }
 
-    // Navigate to a URL
-    public void navigateTo(String url) {
-        driver.get().get(url);  // Use WebDriver from ThreadLocal
+    // Quit and cleanup driver
+    public static void quitDriver() {
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove();
+        }
     }
-    // Maximize the browser window
-    public void maximizeWindow() {
-        driver.get().manage().window().maximize();
+
+    // Constructor for page objects
+    public BrowserActionsUtility() {
+        this.wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(30L));
     }
-    // Click on an element using locator
-    public static void clickOn(By locator) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
+
+    // Common Selenium actions
+    public void navigateToWebsite(String url) {
+        logger.info("Navigating to URL: {}", url);
+        getCurrentDriver().manage().window().maximize();
+        getCurrentDriver().get(url);
+    }
+
+    public void clickOn(By locator) {
+        logger.debug("Clicking element: {}", locator);
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+
+    public void enterText(By locator, String input) {
+        logger.debug("Entering text '{}' in element: {}", input, locator);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        logger.info("Element found and now performing click");
-        element.click();
-    }    public static void clickOnWebElement(WebElement locator) {
+        element.clear();
+        element.sendKeys(input);
+    }
+
+    public String getVisibleText(By locator) {
+        logger.debug("Getting text from element: {}", locator);
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+    }
+    public void waitTill(int duration) {
+        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(duration));
+    }
+    public void clickOnWebElement(WebElement locator) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         logger.info("Element found and now performing click");
         element.click();
     }
-    public static void rightClick(By locator) {
+    public void rightClick(By locator) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-        Actions actions=new Actions(driver.get());
+        Actions actions = new Actions(driver.get());
         logger.info("Element found and now performing right click");
         actions.moveToElement(element).contextClick().build().perform();
     }
-    public static void doubleClick(By locator) {
+
+    public void doubleClick(By locator) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-        Actions actions=new Actions(driver.get());
+        Actions actions = new Actions(driver.get());
         logger.info("Element found and now performing double click");
         actions.moveToElement(element).doubleClick().build().perform();
     }
-    public static WebElement webElement(By locator) {
+
+    public WebElement webElement(By locator) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         logger.info("Element found and now performing click");
         return element;
     }
 
-    public static void navigateToWebsite(String url) {
-        logger.info("Navigating to the website" + url);
-        driver.get().get(url);  // Use WebDriver from ThreadLocal
-    }
-
-    // Enter text in a field using locator
-    public static void enterText(By locator, String textToEnter) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        logger.info("Element found and now entering text: " + textToEnter);
-        element.sendKeys(textToEnter);
-    }
 
     // Clear text in a field using locator
-    public static void clearText(By textBoxLocator) {
+    public void clearText(By textBoxLocator) {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(textBoxLocator));
         logger.info("Element found and clearing the text box");
         element.clear();
     }
 
     // Select an option from a dropdown using visible text
-    public static void selectFromDropdown(By dropDownLocator, String optionToSelect) {
+    public void selectFromDropdown(By dropDownLocator, String optionToSelect) {
         WebElement element = driver.get().findElement(dropDownLocator);
         Select select = new Select(element);
         select.selectByVisibleText(optionToSelect);
     }
-    public static void selectDate(By locator, String dateValue) {
+
+    public void selectDate(By locator, String dateValue) {
         WebElement dateField = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         //dateField.click();
         JavascriptExecutor js = (JavascriptExecutor) driver.get();
         js.executeScript("arguments[0].value = arguments[1];", dateField, dateValue);
     }
-    // Get visible text from an element
-    public static String getVisibleText(By locator) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        return element.getText();
-    }
-    public static List<WebElement> getAttribute(By locator) {
+
+
+    public List<WebElement> getAttribute(By locator) {
         List<WebElement> linkElements = driver.get().findElements(locator);
         return linkElements;
     }
 
-    public static void getWindowHandles(String windowName){
-        wait=new WebDriverWait(driver.get(),Duration.ofSeconds(10l));
-       // WebElement element=wait.until(ExpectedConditions.elementToBeClickable(locator));
-        Set<String> windowHandles=driver.get().getWindowHandles();
+    public void getWindowHandles(String windowName) {
+        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10l));
+        String mainWindowHandle = driver.get().getWindowHandle();
+        Set<String> windowHandles = driver.get().getWindowHandles();
 
-        for(String window:windowHandles){
+        for (String window : windowHandles) {
             driver.get().switchTo().window(window);
+            String title = driver.get().getTitle();
+            assert title != null;
 
-            String title=driver.get().getTitle();
-            if(title.equalsIgnoreCase(windowName)){
+            if (title.contains(windowName)) {
+                System.out.println(title);
                 break;
             }
         }
+        driver.get().close();
+        driver.get().switchTo().window(mainWindowHandle);
+
     }
 
-     // Capture a screenshot
-    public static String captureScreenshot(String testName) {
-        String SCREENSHOT_DIR = "/target/testScreenshotsFiles/";
-        File screenshot = ((TakesScreenshot) driver.get()).getScreenshotAs(OutputType.FILE);  // Capture screenshot
-        String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String filePath = System.getProperty("user.dir") + SCREENSHOT_DIR + testName + "_screenshot_" + timestamp + ".PNG";
+    public void handleAlert(String type, String text) {
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        logger.info("Handling alert of type: {}", type);
 
-        try {
-            FileUtils.copyFile(screenshot, new File(filePath));  // Save screenshot
-        } catch (Exception e) {
-            logger.error("Error while capturing screenshot", e);
+        switch (type.toLowerCase()) {
+            case "accept" -> alert.accept();
+            case "send" -> {
+                if (text != null) {
+                    alert.sendKeys(text);
+                    alert.accept();
+                } else throw new IllegalArgumentException("Text is required for sending to alert.");
+            }
+            default -> throw new IllegalArgumentException("Unsupported alert type: " + type);
         }
-        return filePath;
     }
-    public static void brokenLinkVerification(By locator){
-        wait=new WebDriverWait(driver.get(),Duration.ofSeconds(10L));
-        List<WebElement> links=driver.get().findElements(locator);
+
+
+    public void iframeActivity(String iframeBy, Object value, Boolean defaultFrame) {
+        waitTill(10);
+        switch (iframeBy) {
+            case "index":
+                driver.get().switchTo().frame((Integer) value);
+                break;
+            case "nameOrId":
+                driver.get().switchTo().frame((String) value);
+                break;
+            case "webElement":
+                driver.get().switchTo().frame((WebElement) value);
+                break;
+            case "byElement":
+                WebElement iframeElement = driver.get().findElement((By) value);
+                driver.get().switchTo().frame(iframeElement);
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid iframeBy: " + iframeBy);
+        }
+
+        if (Boolean.TRUE.equals(defaultFrame)) {
+            driver.get().switchTo().defaultContent();
+        }
+    }
+
+    public void defaultIframe() {
+        driver.get().switchTo().defaultContent();
+    }
+
+    public static String captureScreenshot(String testName) {
+        try {
+            String screenshotPath = System.getProperty("user.dir") + "/screenshots/" + testName + "_" + System.currentTimeMillis() + ".png";
+            File screenshotFile = new File(screenshotPath);
+            FileUtils.copyFile(((TakesScreenshot) getCurrentDriver()).getScreenshotAs(OutputType.FILE), screenshotFile);
+            return screenshotPath;
+        } catch (Exception e) {
+            logger.error("Failed to capture screenshot: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public void brokenLinkVerification(By locator) {
+        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
+        List<WebElement> links = driver.get().findElements(locator);
 //        for(int i=0;i<links.size();i++){
 //            WebElement link=links.get(i);
 
@@ -206,41 +265,49 @@ public class BrowserActionsUtility {
             verifyLink(url);
         }
     }
-    public static void verifyLink(String linkURL){
+
+    public void verifyLink(String linkURL) {
         try {
             URL url = new URL(linkURL);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.connect();
 
-            int responseCode=httpURLConnection.getResponseCode();
-            if(responseCode>400){
-                System.out.println(linkURL+"-"+httpURLConnection.getResponseCode()+" is a broken link");
-            }else{
-                System.out.println(linkURL+"-"+httpURLConnection.getResponseCode());
+            int responseCode = httpURLConnection.getResponseCode();
+            if (responseCode > 400) {
+                System.out.println(linkURL + "-" + httpURLConnection.getResponseCode() + " is a broken link");
+            } else {
+                System.out.println(linkURL + "-" + httpURLConnection.getResponseCode());
             }
-        }catch (Exception ignored){
+        } catch (Exception ignored) {
         }
     }
 
-    public static void autoOTPGenerator(String OTP){
-        Base32 base32=new Base32();
-        byte[] bytes=base32.decode(OTP);
-        SecretKey key=new SecretKeySpec(bytes,"HmacSHA1");
-        //String.format("%06d",autoOTPGenerator(key, Instant.now()));
+    public void retryMethodForPages(By locator) {
+        int maxAttempts = 3;
+        int attempt = 0;
+        while (attempt < maxAttempts) {
+            try {
+                clickOn(locator);
+                break;
+            } catch (Exception e) {
+                attempt++;
+                if (attempt == maxAttempts) {
+                    throw e;
+                }
+                waitTill(2);
+            }
+        }
     }
-    public static List<Map<String, String>> readExcelData() throws IOException {
-        String path = "//src//main//java//core//testdata//Excel_Imports//Credentials.xlsx";
-        String sheetName = "sheet1";
 
-        File src = new File(System.getProperty("user.dir") + path);
+    // ... rest of the existing code ...
+    public List<Map<String, String>> readExcelData() throws IOException {
+        String path = System.getProperty("user.dir") + "/src/main/java/core/testdata/Excel_Imports/Credentials.xlsx";
 
         List<Map<String, String>> credentials = new ArrayList<>();
 
-        try (FileInputStream fis = new FileInputStream(src);
-             XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
-
-            XSSFSheet sheet = workbook.getSheet(sheetName);
+        try (XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream(path))) {
+            XSSFSheet sheet = workbook.getSheet("sheet1");
             XSSFRow headerRow = sheet.getRow(0);
             int columns = headerRow.getLastCellNum();
 
@@ -266,13 +333,5 @@ public class BrowserActionsUtility {
             System.out.println("Error while reading the file" + e.getMessage());
         }
         return credentials;
-    }
-
-    // Quit the browser and clean up
-    public void quit() {
-        if (driver.get() != null) {
-            driver.get().quit();
-            driver.remove();  // Clean up the WebDriver from ThreadLocal
-        }
     }
 }

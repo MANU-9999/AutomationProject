@@ -8,9 +8,10 @@ public class SignUpPage extends BrowserActionsUtility {
     private static final By mobileNo =By.xpath("//input[@id='username' and @type='text']");
 
     public SignUpPage(WebDriver driver) {
-        super(driver);
+        super();
     }
-    public static void doSignUpWith(String mobileNumber) {
-        BrowserActionsUtility.enterText(mobileNo, mobileNumber);
+    public SignUpPage doSignUpWith(String mobileNumber) {
+        enterText(mobileNo, mobileNumber);
+        return this;
     }
- }
+}

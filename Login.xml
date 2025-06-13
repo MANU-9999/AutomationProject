@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="DemoQA Test Suite">
+<suite name="DemoQA Test Suite" parallel="methods" thread-count="2">
     <test name="Upload Download Test">
         <classes>
-            <class name="com.ui.ElementsTest">
+            <class name="com.ui.LoginValidationTest">
                 <methods>
-                    <include name="uploadAndDownload"/>
+                    <include name="validLoginTest"/>
+                    <include name="inValidLoginTest"/>
                 </methods>
             </class>
         </classes>

@@ -1,25 +1,27 @@
 package core.pageobjects;
 
 import core.testutils.BrowserActionsUtility;
+import core.testutils.LoggerUtility;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class ProfilePage extends BrowserActionsUtility {
-    private static final By LinkTags = By.tagName("a");
+    Logger logger = LoggerUtility.getLogger(this.getClass());
 
-    public ProfilePage(WebDriver driver) {
-        super(driver);
+    private static By LinkTags = By.tagName("a");
+
+    public ProfilePage() {
+        super();
     }
 
-    public static void pageURLDetails() {
-        List<WebElement> linksElement = BrowserActionsUtility.getAttribute(LinkTags);
+    public ProfilePage pageURLDetails() {
+        List<WebElement> linksElement = getAttribute(LinkTags);
         Set<String> links = new HashSet<>();
         for (WebElement link : linksElement) {
             String url = link.getDomAttribute("href");
@@ -28,22 +30,6 @@ public class ProfilePage extends BrowserActionsUtility {
         for (String link : links) {
             verifyLink(link);
         }
+        return this;
     }
-    public static void verifyLink(String url) {
-        try {
-            URL link = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) link.openConnection();
-            connection.setConnectTimeout(500);
-            connection.connect();
-            int responseCode = connection.getResponseCode();
-            if (responseCode >= 400) {
-                System.out.println(url + ":" + connection.getResponseMessage()+"is broken link");
-            }
-        } catch (Exception e) {
-            System.out.println(url + " is broken");
-        }
-
-    }
-
-
 }

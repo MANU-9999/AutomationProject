@@ -1,4 +1,3 @@
-
 package com.ui;
 
 import core.constants.Browser;

@@ -3,23 +3,10 @@
 <suite name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="5" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="com.ui.AlertsFramesAndWindowsTest">
-        <methods>
-          <include name="browserWindowsTest"/>
-          <include name="setup"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.ui.AlertsFramesAndWindowsTest -->
-      <class name="com.ui.LoginValidationTest">
-        <methods>
-          <include name="setup"/>
-          <include name="InValidLogintest" invocation-numbers="0"/>
-          <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.ui.LoginValidationTest -->
       <class name="com.ui.RegistrationTest">
         <methods>
           <include name="registrationForm" invocation-numbers="0"/>
+          <include name="setUp"/>
           <include name="setup"/>
           <include name="tearDown"/>
         </methods>

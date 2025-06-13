@@ -4,14 +4,12 @@ import core.testutils.BrowserActionsUtility;
 import core.testutils.LoggerUtility;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class RegistrationPage extends BrowserActionsUtility {
     Logger logger = LoggerUtility.getLogger(this.getClass());
+    private final By practiceFormTab = By.xpath("//a[contains(@href,'selenium_automation_practice.php')]");
+
     public static final By Name = By.id("name");
     public static final By Email = By.id("email");
     //    public static final By Gender = By.xpath("//div[input[@type='radio'] and label[contains(text(),\"\")]][1]");
@@ -27,39 +25,29 @@ public class RegistrationPage extends BrowserActionsUtility {
     public static final By Login = By.xpath("//input[@value='Login']");
     public static final By errors = By.xpath("//label[@class='error']");
 
-    public RegistrationPage(WebDriver driver) {
-        super(driver);
+    public RegistrationPage() {
+        super();
     }
 
-    public static void registrationFormGrid(String name, String email, String mobileNo, String dateOfBirth, String subject, String picturePath, String currentAddress, String stateName, String cityName) {
-        enterText(Name, name);
-        enterText(Email, email);
-        clickOn(Gender);
-        enterText(MobileNo, mobileNo);
-        selectDate(DateofBirth, dateOfBirth);
-        enterText(Subjects, subject);
-        clickOn(Hobbies);
-        enterText(Picture, picturePath);
-        enterText(CurrentAddress, currentAddress);
-        selectFromDropdown(State, stateName);
-        selectFromDropdown(City, cityName);
-       retryMethodForPages(Login);
-    }
-    public static void retryMethodForPages(By Element){
+    public RegistrationPage registrationFormGrid(String name, String email, String mobileNo, String dateOfBirth, String subject, String picturePath, String currentAddress, String stateName, String cityName) {
         try {
-            clickOn(Element);
-        } catch (ElementClickInterceptedException e) {
-            clickOn(Element);
+            clickOn(practiceFormTab);
+            enterText(Name, name);
+            enterText(Email, email);
+            clickOn(Gender);
+            enterText(MobileNo, mobileNo);
+            selectDate(DateofBirth, dateOfBirth);
+            enterText(Subjects, subject);
+            clickOn(Hobbies);
+            enterText(Picture, picturePath);
+            enterText(CurrentAddress, currentAddress);
+            selectFromDropdown(State, stateName);
+            selectFromDropdown(City, cityName);
+            retryMethodForPages(Login);
+        } catch (Exception e) {
+            logger.error("Error in registration form: " + e.getMessage());
+            throw e;
         }
-        List<WebElement> ele = getAttribute(Element);
-        if (ele.isEmpty()) {
-            //logger.info("Registration completed successfully");
-            System.out.println("Activity completed successfully");
-        } else {
-            //logger.info("Some fields are missing");
-            System.out.println("Some fields are missing");
-        }
-
-
+        return this;
     }
 }

@@ -2,38 +2,50 @@ package com.ui;
 
 import core.pageobjects.ElementsPage;
 import core.testdata.ElementsDataProvider;
+import core.testutils.ListenerUtility;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(ListenerUtility.class)
 public class ElementsTest extends TestBase {
-    // @Test(dataProvider="textBox",dataProviderClass= ElementsDataProvider.class)
+    private ElementsPage elementsPage;
+    @BeforeMethod(description = "Loading the test base")
+    public void setup() {
+        elementsPage = new ElementsPage();
+    }
+
+    @Test(dataProvider = "textBox", dataProviderClass = ElementsDataProvider.class)
     public void texBox(String FullName, String Email, String Address, String password) {
-        ElementsPage.textBox(FullName, Email, Address, password);
+        elementsPage.textBox(FullName, Email, Address, password);
     }
-
-    //  @Test
+    @Test
     public void checkBox() {
-        ElementsPage.checkBox();
+        elementsPage.checkBox();
     }
 
-    //@Test
+    @Test
     public void radioButtons() {
-        ElementsPage.radioButtons();
+        elementsPage.radioButtons();
     }
 
-    //    @Test
+    @Test
     public void buttons() {
-        ElementsPage.buttons();
+        elementsPage.buttons();
     }
-   // @Test
+
+    @Test
     public void links() {
-        ElementsPage.links();
+        elementsPage.links();
     }
-    //@Test
+
+    @Test
     public void brokenLinks() {
-        ElementsPage.brokenLinks();
+        elementsPage.brokenLinks();
     }
+
     @Test(description = "Test for uploading and downloading files")
     public void uploadAndDownload() {
-        ElementsPage.uploadAndDownload("D:\\Manoj\\1747680424251.jpeg");
+        elementsPage.uploadAndDownload("D:\\Manoj\\Selenium\\AIS\\src\\main\\java\\core\\testdata\\alertsTest_1749812062159.png");
     }
 }

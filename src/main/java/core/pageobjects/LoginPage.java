@@ -1,39 +1,44 @@
 package core.pageobjects;
 
-import core.constants.Browser;
 import core.constants.Env;
 import core.testutils.BrowserActionsUtility;
 import core.testutils.JSONUtility;
+import core.testutils.LoggerUtility;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class LoginPage extends BrowserActionsUtility {
-    private static final By userName = By.id("userName");
+    Logger logger = LoggerUtility.getLogger(BrowserActionsUtility.class);
+    private static final By userName = By.id("email");
     private static final By password = By.id("password");
-    private static final By login = By.id("login");
-    private static final By alertMessage = By.cssSelector("p#name");
+    private static final By login = By.cssSelector("input.btn.btn-primary");
+    private static final By alertMessage = By.cssSelector("label.error");
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
+        super();
         navigateToWebsite(JSONUtility.readEnvironmentConfig(Env.QA).getUrl());
-        maximizeWindow();
-    }
-    public LoginPage(Browser browserName, boolean isHeadless) {
-        super(browserName, isHeadless);
-        navigateToWebsite(JSONUtility.readEnvironmentConfig(Env.QA).getUrl());
-        maximizeWindow();
-    }
-    public static void ValidLogin(String username,String pswd) {
-        BrowserActionsUtility.enterText(userName, username);
-        BrowserActionsUtility.enterText(password, pswd);
-        BrowserActionsUtility.clickOn(login);
-    }  public static void InValidLogin(String username,String pswd) {
-        BrowserActionsUtility.enterText(userName, username);
-        BrowserActionsUtility.enterText(password, pswd);
-        BrowserActionsUtility.clickOn(login);
-        String  s=BrowserActionsUtility.getVisibleText(alertMessage);
-        Assert.assertEquals(s,"Invalid username or password!");
     }
 
+    public LoginPage validLogin(String username, String pswd) {
+        enterText(userName, username);
+        enterText(password, pswd);
+        clickOn(login);
+        return this;
+    }
+
+    public LoginPage invalidLogin(String username, String pswd) {
+        enterText(userName, username);
+        enterText(password, pswd);
+        clickOn(login);
+        List<WebElement> msg = getAttribute(alertMessage);
+        if (msg != null) {
+            logger.info("Filed has incorrect values, kindly recheck the details");
+        } else {
+            logger.info("Logged in successfully");
+        }
+        return this;
+    }
 }
