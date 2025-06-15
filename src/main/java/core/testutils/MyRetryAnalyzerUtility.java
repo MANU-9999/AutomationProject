@@ -1,16 +1,19 @@
 package core.testutils;
 
-import core.constants.Env;
+import org.apache.logging.log4j.Logger;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
 public class MyRetryAnalyzerUtility implements IRetryAnalyzer {
-    private static final int maxAttempts = JSONUtility.readEnvironmentConfig(Env.QA).getMax_attempts();
+
+    public static final Logger logger=LoggerUtility.getLogger(MyRetryAnalyzerUtility.class);
     private static int currentAttempt = 1;
     @Override
     public boolean retry(ITestResult results) {
+        int maxAttempts=EnvironmentManager.getMaxAttempts();
         if (currentAttempt <= maxAttempts) {
             currentAttempt++;
+            logger.info("Retrying test: {} (Attempt {}/{})", results.getName(), currentAttempt, maxAttempts);
             return true;
         }
         return false;

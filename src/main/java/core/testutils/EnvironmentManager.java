@@ -1,2 +1,34 @@
-package core.testutils;public class EnvironmentManager {
+package core.testutils;
+
+import core.constants.Env;
+import core.env_config.Environment;
+import org.apache.logging.log4j.Logger;
+
+public class EnvironmentManager {
+    private static final Logger logger = LoggerUtility.getLogger(EnvironmentManager.class);
+    private static Environment environment;
+
+    public static void setEnvironment(Env env) {
+        try {
+            environment = JSONUtility.readEnvironmentConfig(env);
+            logger.info("Environment set to: {}", env);
+        } catch (Exception e) {
+            logger.error("Failed to set environment: {}", e.getMessage());
+            throw new RuntimeException("Failed to set environment: " + e.getMessage());
+        }
+    }
+
+    public static String getUrl() {
+        if (environment == null) {
+            setEnvironment(Env.QA);
+        }
+        return environment.getUrl();
+    }
+
+    public static int getMaxAttempts() {
+        if (environment == null) {
+            setEnvironment(Env.QA);
+        }
+        return environment.getMax_attempts();
+    }
 }

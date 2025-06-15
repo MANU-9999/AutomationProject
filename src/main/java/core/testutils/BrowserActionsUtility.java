@@ -19,14 +19,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 
@@ -34,6 +31,7 @@ public class BrowserActionsUtility {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     private static final Logger logger = LoggerUtility.getLogger(BrowserActionsUtility.class);
     private WebDriverWait wait;
+    private static final int TIMEOUT = 10;
 
     // Static factory method to create and get driver instance
     public static WebDriver getDriver(Browser browser, boolean isHeadless) {
@@ -90,10 +88,16 @@ public class BrowserActionsUtility {
 
     // Constructor for page objects
     public BrowserActionsUtility() {
+        try {
+            if (driver.get() != null) {
+                navigateToWebsite(EnvironmentManager.getUrl());
+            }
+        } catch (Exception e) {
+            logger.error("Error during navigation: {}", e.getMessage());
+        }
         this.wait = new WebDriverWait(getCurrentDriver(), Duration.ofSeconds(30L));
     }
 
-    // Common Selenium actions
     public void navigateToWebsite(String url) {
         logger.info("Navigating to URL: {}", url);
         getCurrentDriver().manage().window().maximize();
@@ -116,15 +120,18 @@ public class BrowserActionsUtility {
         logger.debug("Getting text from element: {}", locator);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
+
     public void waitTill(int duration) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(duration));
     }
+
     public void clickOnWebElement(WebElement locator) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         logger.info("Element found and now performing click");
         element.click();
     }
+
     public void rightClick(By locator) {
         wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -147,7 +154,6 @@ public class BrowserActionsUtility {
         logger.info("Element found and now performing click");
         return element;
     }
-
 
     // Clear text in a field using locator
     public void clearText(By textBoxLocator) {

@@ -19,7 +19,6 @@ public class LoginPage extends BrowserActionsUtility {
 
     public LoginPage() {
         super();
-        navigateToWebsite(JSONUtility.readEnvironmentConfig(Env.QA).getUrl());
     }
 
     public LoginPage validLogin(String username, String pswd) {
