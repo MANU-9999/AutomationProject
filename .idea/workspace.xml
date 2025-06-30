@@ -7167,60 +7167,60 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.<default> (1).executor": "Run",
-    "TestNG.<default> (2).executor": "Run",
-    "TestNG.<default>.executor": "Run",
-    "TestNG.AlertsFramesAndWindowsTest (1).executor": "Run",
-    "TestNG.AlertsFramesAndWindowsTest.alertsTest.executor": "Run",
-    "TestNG.AlertsFramesAndWindowsTest.executor": "Run",
-    "TestNG.AlertsFramesAndWindowsTest.framesTest.executor": "Run",
-    "TestNG.AlertsFramesAndWindowsTest.modalAlertsTest.executor": "Run",
-    "TestNG.D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml.executor": "Run",
-    "TestNG.D:/Manoj/Selenium/DEMOQA/Elements.xml.executor": "Run",
-    "TestNG.D:/Manoj/Selenium/DEMOQA/FinalTesting.xml.executor": "Run",
-    "TestNG.D:/Manoj/Selenium/DEMOQA/Login.xml.executor": "Debug",
-    "TestNG.D:/Manoj/Selenium/DEMOQA/testng.xml.executor": "Run",
-    "TestNG.D:/Manoj/Selenium/Project_Runo/testng.xml.executor": "Run",
-    "TestNG.ElementsTest (1).executor": "Run",
-    "TestNG.ElementsTest (2).executor": "Debug",
-    "TestNG.ElementsTest.brokenLinks.executor": "Run",
-    "TestNG.ElementsTest.executor": "Run",
-    "TestNG.ElementsTest.radioButtons.executor": "Run",
-    "TestNG.ElementsTest.texBox.executor": "Debug",
-    "TestNG.LoginValidationTest.InValidLogin.executor": "Run",
-    "TestNG.LoginValidationTest.InValidLoginTest.executor": "Debug",
-    "TestNG.LoginValidationTest.ValidTest.executor": "Run",
-    "TestNG.LoginValidationTest.executor": "Run",
-    "TestNG.LoginValidationTest.validLoginTest.executor": "Debug",
-    "TestNG.RegistrationTest.executor": "Run",
-    "TestNG.RegistrationTest.registrationForm.executor": "Debug",
-    "TestNG.Runo.executor": "Run",
-    "TestNG.Runo.signUpTest.executor": "Run",
-    "TestNG.beaconTest.executor": "Run",
-    "TestNG.runoTests.executor": "Run",
-    "TestNG.runoTests.signUpTest.executor": "Run",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Manoj/Selenium/DEMOQA/target",
-    "onboarding.tips.debug.path": "D:/Manoj/Selenium/Automation Projects/Test-Automation-Framework-master/Project_Runo/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.file-colors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.&lt;default&gt; (1).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.&lt;default&gt; (2).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.&lt;default&gt;.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertsFramesAndWindowsTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertsFramesAndWindowsTest.alertsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertsFramesAndWindowsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertsFramesAndWindowsTest.framesTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AlertsFramesAndWindowsTest.modalAlertsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.D:/Manoj/Selenium/AutomationFrameWork/target/testng.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.D:/Manoj/Selenium/DEMOQA/Elements.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.D:/Manoj/Selenium/DEMOQA/FinalTesting.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.D:/Manoj/Selenium/DEMOQA/Login.xml.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.D:/Manoj/Selenium/DEMOQA/testng.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.D:/Manoj/Selenium/Project_Runo/testng.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ElementsTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ElementsTest (2).executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.ElementsTest.brokenLinks.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ElementsTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ElementsTest.radioButtons.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.ElementsTest.texBox.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.LoginValidationTest.InValidLogin.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginValidationTest.InValidLoginTest.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.LoginValidationTest.ValidTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginValidationTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginValidationTest.validLoginTest.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.RegistrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTest.registrationForm.executor&quot;: &quot;Debug&quot;,
+    &quot;TestNG.Runo.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Runo.signUpTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.beaconTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.runoTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.runoTests.signUpTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Manoj/Selenium/DEMOQA/target&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Manoj/Selenium/Automation Projects/Test-Automation-Framework-master/Project_Runo/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.file-colors&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "IgnoreLang"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;IgnoreLang&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Manoj\Selenium\DEMOQA\target" />
