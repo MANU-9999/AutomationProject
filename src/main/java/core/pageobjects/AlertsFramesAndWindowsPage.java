@@ -46,7 +46,7 @@ public class AlertsFramesAndWindowsPage extends BrowserActionsUtility {
         super();
     }
     public AlertsFramesAndWindowsPage navigateToAlertsFramesWindows() {
-        clickOn(AlertsFramesWindowsTab);
+        JSClick(AlertsFramesWindowsTab);
         return this;
     }
     public AlertsFramesAndWindowsPage  browserWindows(String newTabName) {

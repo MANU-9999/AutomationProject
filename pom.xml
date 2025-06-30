@@ -7,90 +7,89 @@
     <artifactId>Project1</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <selenium-java>4.33.0</selenium-java>
+        <selenium-support>4.29.0</selenium-support>
+        <testng>7.10.2</testng>
+        <extentreports>5.1.2</extentreports>
+        <log4j-core>2.24.3</log4j-core>
+        <log4j-api>2.24.3</log4j-api>
+        <webdrivermanager>6.1.0</webdrivermanager>
+        <slf4j-simple>1.7.36</slf4j-simple>
+        <lombok>1.18.30</lombok>
+        <poi-ooxml>5.4.1</poi-ooxml>
+        <poi-ooxml-schemas>4.1.2 </poi-ooxml-schemas>
+        <commons-io>2.18.0</commons-io>
+
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.29.0</version>
+            <version>${selenium-java}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
-            <version>4.29.0</version>
+            <version>${selenium-support}</version>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-chrome-driver</artifactId>
-            <version>4.29.0</version> <!-- Ensuring consistency in versions -->
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>4.29.0</version>
-        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.10.2</version>
+            <version>${testng}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.18.0</version>
+            <version>${commons-io}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>5.1.2</version>
+            <version>${extentreports}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.24.3</version>
+            <version>${log4j-core}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.24.3</version>
+            <version>${log4j-api}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>5.4.1</version>
+            <version>${poi-ooxml}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>
-            <version>4.1.2</version>
+            <version>${poi-ooxml-schemas}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>6.1.0</version>
+            <version>${webdrivermanager}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.7.36</version> <!-- use a compatible version -->
+            <version>${slf4j-simple}</version> <!-- use a compatible version -->
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.38</version>
+            <version>${lombok}</version>
+            <scope>provided</scope>
         </dependency>
-
     </dependencies>
-
 </project>

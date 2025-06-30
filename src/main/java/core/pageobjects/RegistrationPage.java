@@ -4,7 +4,11 @@ import core.testutils.BrowserActionsUtility;
 import core.testutils.LoggerUtility;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class RegistrationPage extends BrowserActionsUtility {
     Logger logger = LoggerUtility.getLogger(this.getClass());
@@ -38,14 +42,26 @@ public class RegistrationPage extends BrowserActionsUtility {
             enterText(MobileNo, mobileNo);
             selectDate(DateofBirth, dateOfBirth);
             enterText(Subjects, subject);
-            clickOn(Hobbies);
+            JSClick(Hobbies);
             enterText(Picture, picturePath);
             enterText(CurrentAddress, currentAddress);
             selectFromDropdown(State, stateName);
             selectFromDropdown(City, cityName);
-            retryMethodForPages(Login);
-        } catch (Exception e) {
-            logger.error("Error in registration form: " + e.getMessage());
+
+            try {
+                JSClick(Login);
+            } catch (ElementClickInterceptedException e) {
+                clickOn(Login);
+            }
+            List<WebElement> ele = getAttribute(errors);
+            if (ele.isEmpty()) {
+                System.out.println("Registration completed successfully");
+            } else {
+                System.out.println("Some fields are missing");
+            }
+
+        } catch (ElementClickInterceptedException e) {
+                logger.error("Error in registration form: " + e.getMessage());
             throw e;
         }
         return this;

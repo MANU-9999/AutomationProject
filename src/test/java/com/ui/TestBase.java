@@ -21,13 +21,12 @@ public class TestBase {
 
     @Parameters({"browser", "env", "isHeadless"})
     @BeforeMethod(description = "Loading the test base")
-    public void setup(@Optional("chrome") String browser,
+    public void setup(@Optional("chrome") String browser,  //    CHROME, FIREFOX, EDGE, IE
                       @Optional("QA") String env,
                       @Optional("false") boolean isHeadless, ITestResult result) {
         // Set environment
         EnvironmentManager.setEnvironment(Env.valueOf(env.toUpperCase()));
-
-        // Initialize driver and page objects
+        // Initialize driver and page objects - Headless
         driver = BrowserActionsUtility.getDriver(Browser.valueOf(browser.toUpperCase()), isHeadless);
         loginPage = new LoginPage();
 

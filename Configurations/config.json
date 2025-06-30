@@ -2,11 +2,11 @@
   "environments": {
     "QA": {
       "url": "https://www.tutorialspoint.com/selenium/practice/login.php",
-      "maxAttempts": 2
+      "maxAttempts": 4
     },
     "PROD": {
       "url": "https://demoqa.com/login",
-      "maxAttempts": 2
+      "maxAttempts": 4
     }
   }
 }

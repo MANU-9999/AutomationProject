@@ -1,6 +1,7 @@
 package core.testutils;
 
 import core.constants.Browser;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -26,6 +27,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BrowserActionsUtility {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
@@ -36,7 +39,7 @@ public class BrowserActionsUtility {
     // Static factory method to create and get driver instance
     public static WebDriver getDriver(Browser browser, boolean isHeadless) {
         if (driver.get() == null) {
-            WebDriver newDriver = createDriver(browser, isHeadless);
+            WebDriver newDriver = createDriver(browser, isHeadless);  //calling createDriver method for browser change
             driver.set(newDriver);
         }
         return driver.get();
@@ -47,6 +50,7 @@ public class BrowserActionsUtility {
         WebDriver newDriver;
         switch (browser) {
             case CHROME:
+                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 if (isHeadless) {
                     chromeOptions.addArguments("--headless", "--window-size=1920x1080");
@@ -54,6 +58,7 @@ public class BrowserActionsUtility {
                 newDriver = new ChromeDriver(chromeOptions);
                 break;
             case FIREFOX:
+                WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 if (isHeadless) {
                     firefoxOptions.addArguments("--headless");
@@ -61,6 +66,7 @@ public class BrowserActionsUtility {
                 newDriver = new FirefoxDriver(firefoxOptions);
                 break;
             case EDGE:
+                WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
                 if (isHeadless) {
                     edgeOptions.addArguments("--headless", "--window-size=1920x1080");
@@ -106,11 +112,22 @@ public class BrowserActionsUtility {
 
     public void clickOn(By locator) {
         logger.debug("Clicking element: {}", locator);
+        waitTill(10);
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
+    public void JSClick(By locator) {
+        logger.debug("Clicking element using JavaScript: {}", locator);
+        waitTill(10);
+        WebElement ele=wait.until(ExpectedConditions.elementToBeClickable(locator));
+        JavascriptExecutor js = (JavascriptExecutor) driver.get();
+        js.executeScript("arguments[0].click();",ele);
+
+    }
+
 
     public void enterText(By locator, String input) {
         logger.debug("Entering text '{}' in element: {}", input, locator);
+        waitTill(10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         element.clear();
         element.sendKeys(input);
@@ -118,6 +135,7 @@ public class BrowserActionsUtility {
 
     public String getVisibleText(By locator) {
         logger.debug("Getting text from element: {}", locator);
+        waitTill(5);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
 
@@ -126,14 +144,14 @@ public class BrowserActionsUtility {
     }
 
     public void clickOnWebElement(WebElement locator) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
+        waitTill(10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         logger.info("Element found and now performing click");
         element.click();
     }
 
     public void rightClick(By locator) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
+        waitTill(10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         Actions actions = new Actions(driver.get());
         logger.info("Element found and now performing right click");
@@ -141,7 +159,7 @@ public class BrowserActionsUtility {
     }
 
     public void doubleClick(By locator) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
+        waitTill(10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         Actions actions = new Actions(driver.get());
         logger.info("Element found and now performing double click");
@@ -149,7 +167,7 @@ public class BrowserActionsUtility {
     }
 
     public WebElement webElement(By locator) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10L));
+        waitTill(10);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         logger.info("Element found and now performing click");
         return element;
@@ -164,6 +182,7 @@ public class BrowserActionsUtility {
 
     // Select an option from a dropdown using visible text
     public void selectFromDropdown(By dropDownLocator, String optionToSelect) {
+        waitTill(10);
         WebElement element = driver.get().findElement(dropDownLocator);
         Select select = new Select(element);
         select.selectByVisibleText(optionToSelect);
@@ -183,7 +202,7 @@ public class BrowserActionsUtility {
     }
 
     public void getWindowHandles(String windowName) {
-        wait = new WebDriverWait(driver.get(), Duration.ofSeconds(10l));
+        waitTill(10);
         String mainWindowHandle = driver.get().getWindowHandle();
         Set<String> windowHandles = driver.get().getWindowHandles();
 
@@ -265,12 +284,12 @@ public class BrowserActionsUtility {
         List<WebElement> links = driver.get().findElements(locator);
 //        for(int i=0;i<links.size();i++){
 //            WebElement link=links.get(i);
-
         for (WebElement link : links) {
             String url = link.getDomAttribute("href");
             verifyLink(url);
         }
     }
+
 
     public void verifyLink(String linkURL) {
         try {
@@ -281,28 +300,11 @@ public class BrowserActionsUtility {
 
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode > 400) {
-                System.out.println(linkURL + "-" + httpURLConnection.getResponseCode() + " is a broken link");
-            } else {
-                System.out.println(linkURL + "-" + httpURLConnection.getResponseCode());
+                System.out.println("Broken" + linkURL + "[Status" + responseCode + "]");
             }
-        } catch (Exception ignored) {
-        }
-    }
+        } catch (Exception e) {
+            System.out.println("Error" + "[" + e.getMessage() + "]");
 
-    public void retryMethodForPages(By locator) {
-        int maxAttempts = 3;
-        int attempt = 0;
-        while (attempt < maxAttempts) {
-            try {
-                clickOn(locator);
-                break;
-            } catch (Exception e) {
-                attempt++;
-                if (attempt == maxAttempts) {
-                    throw e;
-                }
-                waitTill(2);
-            }
         }
     }
 

@@ -24,11 +24,12 @@ public class EnvironmentManager {
         }
         return environment.getUrl();
     }
-
     public static int getMaxAttempts() {
         if (environment == null) {
             setEnvironment(Env.QA);
         }
-        return environment.getMax_attempts();
+        int attempts = environment.getMax_attempts();
+        return (attempts > 0) ? attempts : 2; // 2 is the default retry value  using if else statement
     }
+
 }

@@ -140,7 +140,7 @@ public class ElementsPage extends BrowserActionsUtility {
 
     public ElementsPage brokenLinks() {
         navigateToElementsTab();
-        clickOn(brokenLinksTab);
+        JSClick(brokenLinksTab);
         brokenLinkVerification(linksListInBrokenLinksScreen);
         return this;
     }

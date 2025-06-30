@@ -14,4 +14,11 @@ public class SignUpPage extends BrowserActionsUtility {
         enterText(mobileNo, mobileNumber);
         return this;
     }
+
+
+
+
+
+
+
 }
